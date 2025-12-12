@@ -43,7 +43,7 @@ app.delete('/user/:userId', (req, res) => {
     res.send('ลบผู้ใช้งาน ID ' + req.params.userId);
 });
 
-let port = 8082;
+let port = 8081;
 app.listen(port, () => {
     console.log('Server running on port ' + port);
 });
