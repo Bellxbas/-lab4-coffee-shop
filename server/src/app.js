@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require('express')
 const cors = require('cors')
 const { sequelize } = require('./models') // เรียกใช้ sequelize object ที่เราสร้างไว้
@@ -23,3 +24,30 @@ sequelize.sync({ force: false }).then(() => {
         console.log('CoffeeShop Server running on port ' + config.port)
         })
     })
+=======
+let express = require('express')
+let bodyParser = require('body-parser')
+ 
+const app = express()
+ 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+ 
+// เรียกใช้ routes โดยส่ง app เข้าไป
+require('./routes')(app)
+ 
+app.get('/status', function (req, res) {
+    res.send('Hello nodejs server')
+})
+ 
+app.get('/hello/:person', function (req, res) {
+    console.log('hello - ' + req.params.person)
+    res.send('sey hello with ' + req.params.person)
+})
+ 
+let port = 8081
+ 
+app.listen(port, function () {
+    console.log('server running on ' + port)
+})
+>>>>>>> d0d88908f17e772a630e2d7def4b62dcb198b4f5
